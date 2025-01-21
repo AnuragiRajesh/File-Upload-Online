@@ -106,7 +106,7 @@ const FileUpload = () => {
   return (
     <div>
       <h1>Upload File and Folder</h1>
-      <input type="file" webkitdirectory="true" directory="true" multiple onChange={handleFileChange} />
+      <input type="file" multiple onChange={handleFileChange} /> {/* Remove webkitdirectory and directory attributes */}
       <div
         onDrop={handleDrop}
         onDragOver={handleDragOver}
@@ -126,6 +126,7 @@ const FileUpload = () => {
             {file.webkitRelativePath || file.name}
             <button onClick={() => handleEdit(index)}>Edit</button>
             <button onClick={() => handleDelete(index)}>Delete</button>
+            <button onClick={() => handleDownload(file)}>Download</button>
           </li>
         ))}
       </ul>
